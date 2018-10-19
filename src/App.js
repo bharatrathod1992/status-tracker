@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Grid from '@material-ui/core/Grid';
+
+import TitleBar from './components/TitleBar';
+import Blocker from './components/Blocker';
+import Today from './components/Today';
+import Yesterday from './components/Yesterday';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="root">
+      <Grid container spacing={16}>
+        <Grid item xs={12}>
+            <TitleBar />
+        </Grid>
+      </Grid>
+      <Grid container justify="center" spacing={16}>
+        <Grid item xs={4}>
+            <Blocker />
+        </Grid>
+        <Grid item xs={4}>
+            <Today />
+        </Grid>
+        <Grid item xs={4}>
+            <Yesterday />
+        </Grid>
+      </Grid>
+      
       </div>
     );
   }
